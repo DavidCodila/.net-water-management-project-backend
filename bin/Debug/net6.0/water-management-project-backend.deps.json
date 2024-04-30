@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "water-management-project-backend/1.0.0": {
+        "runtime": {
+          "water-management-project-backend.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "water-management-project-backend/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
