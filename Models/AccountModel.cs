@@ -1,3 +1,5 @@
+using System.Linq.Expressions;
+
 namespace water_management_project_backend.Models;
 
 public class AccountModel
@@ -9,34 +11,63 @@ public class AccountModel
     const double PERSONAL_WATER_ALLOWANCE_PER_MONTH =
       PERSONAL_WATER_ALLOWANCE * DAYS_IN_A_MONTH;
 
-    private string id;
-    private string appartmentType;
+    private string? id;
+    private string? appartmentType;
     private int corporationRatio;
     private int borewellRatio;
     private int initalPeople;
-    private int additionalPeople;
-    private int initalWaterAmmount;
-    private int additionalWaterAmount;
-    private int cost;
+    private int additionalPeople { get; set; }
+    private int initalWaterAmmount { get; set; }
+    private int additionalWaterAmount { get; set; }
+    private int cost { get; set; }
 
     public AccountModel()
     {
-        Random randomNumberGenatator = new Random();
-        id = randomNumberGenatator.Next(1, 1000).ToString();
-        if (appartmentType == "2BHK")
-        {
-            initalPeople = 3;
-        }
-        else initalPeople = 5;
+        GenerateID();
         additionalPeople = 0;
         initalWaterAmmount = 0;
         additionalWaterAmount = 0;
         cost = 0;
 
     }
-    public string getId()
+    public string? GetId()
     {
         return id;
+    }
+    public int GetInitalPeople()
+    {
+        return initalPeople;
+    }
+
+    public string GenerateID()
+    {
+        Random randomNumberGenatator = new Random();
+        id = randomNumberGenatator.Next(1, 1000).ToString();
+        return id;
+    }
+    public void SetAppartmentType(string appartment_type)
+    {
+        switch (appartment_type)
+        {
+            case "2BHK":
+                initalPeople = 3;
+                break;
+            case "3BHK":
+                initalPeople = 5;
+                break;
+            default:
+                appartmentType = "";
+                throw new Exception(appartment_type);
+        }
+        appartmentType = appartment_type;
+    }
+    public void SetCorporationRatio(int ratio)
+    {
+        corporationRatio = ratio;
+    }
+    public void SetBorewellRatio(int ratio)
+    {
+        borewellRatio = ratio;
     }
 
 }
