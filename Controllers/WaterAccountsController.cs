@@ -8,6 +8,7 @@ public class WaterAccountsController : Controller
 {
     public ContentResult Index()
     {
-        return Content("Hello World");
+        AccountModel accountModel = new AccountModel("2BHK", 1, 1);
+        return Content("Account id: " + accountModel.getId());
     }
 }
