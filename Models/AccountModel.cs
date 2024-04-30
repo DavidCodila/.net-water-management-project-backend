@@ -19,16 +19,10 @@ public class AccountModel
     private int additionalWaterAmount;
     private int cost;
 
-    public AccountModel(
-        string appartmentType,
-        int corporationRatio,
-        int borewellRatio)
+    public AccountModel()
     {
         Random randomNumberGenatator = new Random();
         id = randomNumberGenatator.Next(1, 1000).ToString();
-        this.appartmentType = appartmentType;
-        this.corporationRatio = corporationRatio;
-        this.borewellRatio = borewellRatio;
         if (appartmentType == "2BHK")
         {
             initalPeople = 3;

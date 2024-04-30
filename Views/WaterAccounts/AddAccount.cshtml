@@ -1,0 +1,38 @@
+@using (Html.BeginForm("AddWaterAccount", "WaterAccounts", FormMethod.Post, new { id = "myForm" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="text" id="appartmentType" name="appartmentType" />
+    <input type="text" id="corporationRatio" name="corporationRatio" />
+    <input type="text" id="borewellRatio" name="borewellRatio" />
+    <input type="submit" value="Submit" />
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#myForm").submit(function (e) {
+            e.preventDefault(); // Prevent the default form submission
+
+            var formData = new FormData();
+            formData.appartmentType = $("#appartmentType").val();
+            formData.corporationRatio = $("#corporationRatio").val();
+            formData.borewellRatio = $("#borewellRatio").val();
+
+            $.ajax({
+                url: "/WaterAccounts/AddWaterAccount",
+                type: "POST",
+                data: JSON.stringify(formData),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    if (result.success) {
+                        alert(result.message);
+                    } else {
+                        error: function(jqXhr, textStatus, errorThrown) {
+                            alert(errorThrown);
+                        }
+                    }
+                });
+        });
+    });
+</script>
