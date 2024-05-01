@@ -1,7 +1,13 @@
 namespace water_management_project_backend.Models;
 public class AccountsModel
 {
-    private static readonly List<AccountModel>? accounts;
+    private readonly List<AccountModel> accounts;
+
+    public AccountsModel()
+    {
+        accounts = new List<AccountModel>();
+    }
+
     public void AddAccount(AccountModel accountModel)
     {
         accounts?.Add(accountModel);
