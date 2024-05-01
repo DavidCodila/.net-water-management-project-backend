@@ -70,4 +70,13 @@ public class AccountModel
         borewellRatio = ratio;
     }
 
+    public FormDataModel GetAttributes()
+    {
+        FormDataModel data = new();
+        data.appartmentType = appartmentType;
+        data.borewellRatio = borewellRatio;
+        data.corporationRatio = corporationRatio;
+        return data;
+    }
+
 }

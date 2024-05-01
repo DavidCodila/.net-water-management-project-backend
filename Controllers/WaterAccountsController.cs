@@ -23,7 +23,8 @@ public class WaterAccountsController : Controller
     {
         AccountModel account = CreateNewAccount(jsonRequest);
         accounts.AddAccount(account);
-        return Json(new { accountId = account.GetId() });
+        FormDataModel data = account.GetAttributes();
+        return Json(new { accountId = account.GetId(), apartmentType = data.appartmentType, corporationRatio = data.corporationRatio, borewellRatio = data.borewellRatio });
     }
 
     static AccountModel CreateNewAccount(FormDataModel jsonRequest)
