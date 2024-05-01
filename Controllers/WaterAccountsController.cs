@@ -5,12 +5,14 @@ using System.Net.Http;
 
 namespace water_management_project_backend.Controllers;
 
+
 public class WaterAccountsController : Controller
 {
+    AccountsModel accounts = new();
     public ContentResult Index()
     {
-        AccountModel accountModel = new AccountModel();
-        return Content("Account id: " + accountModel.GetId());
+        AccountModel account = new AccountModel();
+        return Content("Account id: " + account.GetId());
     }
     public IActionResult AddAccount()
     {
@@ -19,15 +21,21 @@ public class WaterAccountsController : Controller
     [HttpPost]
     public JsonResult AddWaterAccount(FormDataModel jsonRequest)
     {
+        AccountModel account = CreateNewAccount(jsonRequest);
+        accounts.AddAccount(account);
+        return Json(new { accountId = account.GetId() });
+    }
+
+    static AccountModel CreateNewAccount(FormDataModel jsonRequest)
+    {
         if (jsonRequest.appartmentType != null)
         {
-            AccountModel accountModel = new AccountModel();
-            accountModel.SetAppartmentType(jsonRequest.appartmentType);
-            accountModel.SetBorewellRatio(jsonRequest.borewellRatio);
-            accountModel.SetCorporationRatio(jsonRequest.corporationRatio);
-            AccountsModel.accounts?.Add(accountModel);
-            return Json(new { accountId = accountModel.GetId() });
+            AccountModel account = new();
+            account.SetAppartmentType(jsonRequest.appartmentType);
+            account.SetBorewellRatio(jsonRequest.borewellRatio);
+            account.SetCorporationRatio(jsonRequest.corporationRatio);
+            return account;
         }
-        return Json(new { accountId = "error" });
+        throw new Exception(jsonRequest.appartmentType);
     }
 }

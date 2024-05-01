@@ -1,3 +1,5 @@
+using water_management_project_backend.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
