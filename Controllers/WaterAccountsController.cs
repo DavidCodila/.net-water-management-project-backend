@@ -19,11 +19,26 @@ public class WaterAccountsController : Controller
         return View();
     }
     [HttpPost]
+    public IActionResult AddPeople(FormDataModel jsonRequest)
+    {
+        AccountModel account = CreateNewAccount(jsonRequest);
+        accounts.AddAccount(account);
+        Console.WriteLine("appartment type: " + account.GetAttributes().appartmentType);
+        Console.WriteLine("corporationRatio: " + account.GetAttributes().corporationRatio);
+        Console.WriteLine("borewellRatio: " + account.GetAttributes().borewellRatio);
+        return View();
+    }
+    [HttpPost]
     public JsonResult AddWaterAccount(FormDataModel jsonRequest)
     {
         AccountModel account = CreateNewAccount(jsonRequest);
         accounts.AddAccount(account);
-        return Json(new { accountId = account.GetId() });
+        return Json(new
+        {
+            at = account.GetAttributes().appartmentType,
+            cr = account.GetAttributes().corporationRatio,
+            br = account.GetAttributes().borewellRatio
+        });
     }
 
     static AccountModel CreateNewAccount(FormDataModel jsonRequest)
@@ -32,10 +47,10 @@ public class WaterAccountsController : Controller
         {
             AccountModel account = new();
             account.SetAppartmentType(jsonRequest.appartmentType);
-            account.SetBorewellRatio(jsonRequest.borewellRatio);
-            account.SetCorporationRatio(jsonRequest.corporationRatio);
+            account.SetCorporationRatio(jsonRequest.ratio);
+            account.SetBorewellRatio(10 - jsonRequest.ratio);
             return account;
         }
-        throw new Exception(jsonRequest.appartmentType);
+        throw new Exception("Json appartment type value is null" + jsonRequest.appartmentType);
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/david/Desktop/Code/dot-net/water-management-project/water-management-project-backend/water-management-project-backend.csproj": {}
+    "/Users/david/Desktop/Code/dot-net/legacy-code/dot-net-test/.net-water-management-project-backend/water-management-project-backend.csproj": {}
   },
   "projects": {
-    "/Users/david/Desktop/Code/dot-net/water-management-project/water-management-project-backend/water-management-project-backend.csproj": {
+    "/Users/david/Desktop/Code/dot-net/legacy-code/dot-net-test/.net-water-management-project-backend/water-management-project-backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/david/Desktop/Code/dot-net/water-management-project/water-management-project-backend/water-management-project-backend.csproj",
+        "projectUniqueName": "/Users/david/Desktop/Code/dot-net/legacy-code/dot-net-test/.net-water-management-project-backend/water-management-project-backend.csproj",
         "projectName": "water-management-project-backend",
-        "projectPath": "/Users/david/Desktop/Code/dot-net/water-management-project/water-management-project-backend/water-management-project-backend.csproj",
+        "projectPath": "/Users/david/Desktop/Code/dot-net/legacy-code/dot-net-test/.net-water-management-project-backend/water-management-project-backend.csproj",
         "packagesPath": "/Users/david/.nuget/packages/",
-        "outputPath": "/Users/david/Desktop/Code/dot-net/water-management-project/water-management-project-backend/obj/",
+        "outputPath": "/Users/david/Desktop/Code/dot-net/legacy-code/dot-net-test/.net-water-management-project-backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/david/.nuget/NuGet/NuGet.Config"
