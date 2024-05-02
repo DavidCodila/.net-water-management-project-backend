@@ -69,6 +69,16 @@ public class AccountModel
     {
         borewellRatio = ratio;
     }
+    public FormDataModel GetAttributes()
+    {
+        FormDataModel data = new()
+        {
+            appartmentType = appartmentType,
+            borewellRatio = borewellRatio,
+            corporationRatio = corporationRatio
+        };
+        return data;
+    }
 
     public FormDataModel GetAttributes()
     {

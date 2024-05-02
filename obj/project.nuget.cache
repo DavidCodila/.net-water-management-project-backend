@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9usS4DFD+tLYaMwI49ZXwrlyD9BoD3YfEAVmfFH36yGoivk/ST/SGKwDU6Hq5agQozkBOcR5kDNTHDphLVsJzA==",
+  "dgSpecHash": "n2C3TJ3CXUOlmzR/JmlsPTztj4zovVoL+zYeZbEqkleQebcjS46v4zZsg0MaAr9u2Mrsa/eOH/ET20+dJRAMYA==",
   "success": true,
-  "projectFilePath": "/Users/david/Desktop/Code/dot-net/water-management-project/water-management-project-backend/water-management-project-backend.csproj",
+  "projectFilePath": "/Users/david/Desktop/Code/dot-net/legacy-code/dot-net-test/.net-water-management-project-backend/water-management-project-backend.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
