@@ -8,21 +8,6 @@
     {
         <div class="d-flex justify-content-center gap-3 mt-4">
             <div class="flex flex-row">
-<<<<<<< HEAD
-                <input type="radio" class="" id="apartment-type-option-2BHK" name="optradio" value="2BHK" checked>
-                <label class="form-check-label" for="apartment-type-option-2BHK">2BHK</label>
-            </div>
-            <div class="flex flex-row">
-                <input type="radio" class="" id="apartment-type-option-3BHK" name="optradio" value="3BHK">
-                <label class="form-check-label" for="apartment-type-option-3BHK">3BHK</label>
-            </div>
-        </div>
-        <div class="mt-4">
-            <h6 class="display-7">Ratio</h6>
-            <input type="range" class="form-range" min="0" max="10" step="1" id="ratio">
-            @Html.AntiForgeryToken()
-            <div class="text-center">
-=======
                 <input type="radio" class="" id="radio1" name="appartmentType" value="2BHK" checked>
                 <label class="form-check-label" for="radio1">2BHK</label>
             </div>
@@ -36,82 +21,8 @@
             <div class="text-center">
                 <h6 class="display-7">Ratio</h6>
                 <input type="range" class="form-range" min="0" max="10" step="1" name="ratio">
->>>>>>> dev
                 <input type="submit" value="Add account" />
             </div>
         </div>
     }
 </div>
-
-@*
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-<<<<<<< HEAD
-    $(document).ready(function () {
-        $("#myForm").submit(function submit(e) {
-            e.preventDefault(); // Prevent the default form submission
-
-            var formData = new FormData();
-
-            var apartmentType = $("input[name=optradio]:checked", '#myForm').val()
-            var ratio = $('#ratio').val()
-
-            formData.apartmentType = apartmentType;
-            formData.corporationRatio = ratio;
-            formData.borewellRatio = 10 - ratio;
-            console.log("Appartment type: " + formData.apartmentType);
-            console.log("Borewell ratio: " + formData.borewellRatio);
-            console.log("Corporation ratio: " + formData.corporationRatio);
-
-
-
-
-
-
-    @* $.ajax({
-                url: "/WaterAccounts/AddWaterAccount",
-                type: "POST",
-                data: JSON.stringify(formData),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function handleSuccess(result) {
-                if (result.success) {
-                alert(result.message);
-                } else {
-                error: function handleError(jqXhr, textStatus, errorThrown) {
-                alert(errorThrown);
-                }
-                }
-                }); *@
-        });
-    });
-</script>
-=======
-$(document).ready(function () {
-$("#myForm").submit(function (e) {
-e.preventDefault(); // Prevent the default form submission
-
-var formData = new FormData();
-//formData.appartmentType = $("#appartmentType").val();
-formData.corporationRatio = $("#corporationRatio").val();
-formData.borewellRatio = $("#borewellRatio").val();
-
-$.ajax({
-url: "/WaterAccounts/AddWaterAccount",
-type: "POST",
-data: JSON.stringify(formData),
-contentType: "application/json; charset=utf-8",
-dataType: "json",
-success: function (result) {
-if (result.success) {
-alert(result.message);
-} else {
-error: function(jqXhr, textStatus, errorThrown) {
-alert(errorThrown);
-}
-}
-});
-});
-});
-</script> *@
->>>>>>> dev

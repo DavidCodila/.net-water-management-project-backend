@@ -79,14 +79,4 @@ public class AccountModel
         };
         return data;
     }
-
-    public FormDataModel GetAttributes()
-    {
-        FormDataModel data = new();
-        data.appartmentType = appartmentType;
-        data.borewellRatio = borewellRatio;
-        data.corporationRatio = corporationRatio;
-        return data;
-    }
-
 }
