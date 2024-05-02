@@ -19,6 +19,11 @@ public class WaterAccountsController : Controller
         return View();
     }
     [HttpPost]
+    public IActionResult PrintBill()
+    {
+        return View();
+    }
+    [HttpPost]
     public IActionResult AddPeople(FormDataModel jsonRequest)
     {
         AccountModel account = CreateNewAccount(jsonRequest);
