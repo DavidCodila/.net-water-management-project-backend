@@ -35,10 +35,6 @@ app.UseCors();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "water-accounts",
-    pattern: "{WaterAccounts}/{action=index}");
-
 
 app.MapControllerRoute(
     name: "default",

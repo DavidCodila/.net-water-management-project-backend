@@ -7,11 +7,6 @@ namespace water_management_project_backend.Controllers;
 
 public class WaterAccountsController : Controller
 {
-    public ContentResult Index()
-    {
-        AccountModel account = new AccountModel();
-        return Content("Account id: " + account.GetId());
-    }
     public IActionResult AddAccount()
     {
         return View();
@@ -33,25 +28,21 @@ public class WaterAccountsController : Controller
         //ViewBag.accounts = accounts;
         return View();
     }
-    [HttpPost]
-    public JsonResult AddWaterAccount(FormDataModel jsonRequest)
+    static AccountModel CreateNewAccount(FormDataModel jsonRequest)
     {
-        //accounts = ViewBag.accounts;
-        AccountModel account = CreateNewAccount(jsonRequest);
-        accounts.AddAccount(account);
-        return Json(new
+        if (jsonRequest.appartmentType != null)
         {
-            at = account.GetAttributes().appartmentType,
-            cr = account.GetAttributes().corporationRatio,
-            br = account.GetAttributes().borewellRatio
-        });
+            AccountModel account = new();
+            account.SetAppartmentType(jsonRequest.appartmentType);
+            account.SetCorporationRatio(jsonRequest.ratio);
+            account.SetBorewellRatio(10 - jsonRequest.ratio);
+            return account;
+        }
+        throw new Exception("Json appartment type value is null" + jsonRequest.appartmentType);
     }
     [HttpPut]
     public JsonResult AddPeopleToAccount(AddPeopleRequestModel request)
     {
-        //dynamic request = JObject.Parse(jsonRequest);
-        //JObject request = JObject.Parse(jsonRequest);
-        //AccountsModel accountsLocalVar = ViewBag.accounts;
         if (request.id != null)
         {
             AccountModel? account = accounts.GetAccountById(request.id);
@@ -67,18 +58,5 @@ public class WaterAccountsController : Controller
         {
             throw new Exception("Json id field was null");
         }
-    }
-
-    static AccountModel CreateNewAccount(FormDataModel jsonRequest)
-    {
-        if (jsonRequest.appartmentType != null)
-        {
-            AccountModel account = new();
-            account.SetAppartmentType(jsonRequest.appartmentType);
-            account.SetCorporationRatio(jsonRequest.ratio);
-            account.SetBorewellRatio(10 - jsonRequest.ratio);
-            return account;
-        }
-        throw new Exception("Json appartment type value is null" + jsonRequest.appartmentType);
     }
 }
