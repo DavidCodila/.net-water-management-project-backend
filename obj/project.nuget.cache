@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8GR0yqoNIVRIie7Hmwa4P9eV8N/UrzAZ6Xh41ItSFEBKjesPULyV+lKo8/8BtIV1Buzj1R68wcqOzaiaOfe5UQ==",
+  "dgSpecHash": "W7tmnxt2rXR5PHMpBYamEBbiBr9rp7oLM661nJRHmOEiAIZmQngtguO9GkY/zz9QXuSK+SMegAY7/ar6eRp70w==",
   "success": true,
   "projectFilePath": "/Users/david/Desktop/Code/dot-net/water-management-project/backend/.net-water-management-project-backend/water-management-project-backend.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/david/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

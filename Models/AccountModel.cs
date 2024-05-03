@@ -38,6 +38,14 @@ public class AccountModel
     {
         return initalPeople;
     }
+    public int GetAdditionalPeople()
+    {
+        return additionalPeople;
+    }
+    public void AddPeople(int people)
+    {
+        additionalPeople += people;
+    }
 
     public string GenerateID()
     {

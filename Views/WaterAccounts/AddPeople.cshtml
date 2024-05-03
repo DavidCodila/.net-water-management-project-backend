@@ -1,13 +1,15 @@
 @{
     ViewData["Title"] = "Add People";
 }
+@using water_management_project_backend.Models;
 
 <div class="text-center">
     <h6 class=" display-7 mt-4">Add People Page</h6>
     <div>
         <label for="people">People</label>
+        <label for="userID">@ViewBag.id</label>
         <input id="people" placeholder="People to add">
-        <button onclick="AddPeople()" id="addPeople">Add People</button>
+        <button id="addPeople">Add People</button>
         @using (Html.BeginForm("PrintBill", "WaterAccounts", FormMethod.Post, new { id = "myForm" }))
         {
             <button type="submit">Print Bill</button>
@@ -15,8 +17,30 @@
     </div>
 </div>
 
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
 <script>
+    $("#addPeople").click(AddPeople);
+
     function AddPeople() {
-        console.log("Clicked Add people buton");
-    }
+        var peopleToAdd = $("#people").val();
+        var id = @ViewBag.id;
+
+        var jsonRequest = { "id": id, "peopleToAdd": peopleToAdd };
+        $.ajax({
+            url: "https://localhost:7042/WaterAccounts/AddPeopleToAccount",
+            type: 'PUT',
+            dataType: "json",
+            contentType: "application/x-www-form-urlencoded",
+            data: jsonRequest,
+            success: function (result) {
+                alert(JSON.stringify(result.response));
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.responseText);
+                alert(thrownError);
+
+            }
+        });
+    };
 </script>

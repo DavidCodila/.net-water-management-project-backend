@@ -1,18 +1,13 @@
 namespace water_management_project_backend.Models;
-public class AccountsModel
+public static class AccountsModel
 {
-    private readonly List<AccountModel> accounts;
+    private static readonly List<AccountModel> accounts = new List<AccountModel>();
 
-    public AccountsModel()
-    {
-        accounts = new List<AccountModel>();
-    }
-
-    public void AddAccount(AccountModel accountModel)
+    public static void AddAccount(AccountModel accountModel)
     {
         accounts?.Add(accountModel);
     }
-    public AccountModel? GetAccountById(string Id)
+    public static AccountModel? GetAccountById(string Id)
     {
         if (accounts == null)
         {
